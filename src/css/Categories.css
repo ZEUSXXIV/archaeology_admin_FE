@@ -1,0 +1,14 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card{
+    height: 300px;
+    /* background-color: aliceblue; */
+    flex: 1 0 300px;
+    max-width: 300px;
+    
+}
