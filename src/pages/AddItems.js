@@ -21,6 +21,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
 import { useFormik, Field } from "formik";
 
 import * as Yup from "yup";
@@ -42,6 +45,8 @@ const AddItems = () => {
     "Canacona",
   ];
   const [taluka, setTaluka] = useState(talukaList[0]);
+
+  const [alert, setAlert] = useState(false)
 
   const formik = useFormik({
     initialValues: {
@@ -75,6 +80,8 @@ const AddItems = () => {
         })
         .then((res) => {
           console.log(res.data);
+          window.location.href = "/";
+          setAlert(true)
         });
     },
   });
@@ -293,6 +300,10 @@ const AddItems = () => {
           </Box>
           </form>
         </Container>
+        {alert && <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        The data has been added!
+      </Alert>}
       </Box>
     </>
   );

@@ -21,6 +21,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+
 import { useFormik, Field } from "formik";
 
 import * as Yup from "yup";
@@ -43,6 +46,7 @@ const UpdateItems = () => {
     "Canacona",
   ];
   const [taluka, setTaluka] = useState(talukaList[0]);
+  const [alert, setAlert] = useState(false)
   const { id } = useParams()
 
   const [monument, setMonument] = useState({})
@@ -54,6 +58,7 @@ const UpdateItems = () => {
     axios.get(`http://localhost:5000/api/v1/monument/${id}`).then((res)=>{
         console.log(res.data[0])
     setMonument(res.data[0])
+    setTaluka(res.data[0].taluka)
     // monument = res.data[0]
     })
 
@@ -92,6 +97,8 @@ const UpdateItems = () => {
         })
         .then((res) => {
           console.log(res.data);
+          window.location.href = "/";
+          setAlert(true)
         });
     },
   });
@@ -310,6 +317,10 @@ const UpdateItems = () => {
           </Box>
           </form>
         </Container>
+        {alert && <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        The data has been added!
+      </Alert>}
       </Box>
     </>
   );

@@ -31,7 +31,7 @@ const columns= [
     key: 'subdiv',
   },
   {
-    title: 'Ownner',
+    title: 'Owner',
     dataIndex: 'owner',
     key: 'owner',
   },
@@ -77,6 +77,7 @@ const columns= [
           try{
             axios.delete(`http://localhost:5000/api/v1/monument/${item._id}`).then((res)=>{
               console.log("deleted==>>", res)
+              window.location.href = "/"
             })
           }catch(e){
             console.log("error==>>", e)

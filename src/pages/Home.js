@@ -72,13 +72,14 @@ const sideItems = [
     //     route:'categories'
     // },
     {
+      title:'List',
+      route:'viewitems'
+  },
+    {
         title:'Add Items',
         route:'additems'
     },
-    {
-        title:'List',
-        route:'viewitems'
-    },
+
     
 ]
 
