@@ -23,6 +23,7 @@ import MonumentList from './MonumentList';
 import AddItems from './AddItems';
 
 import {Routes, Route} from 'react-router-dom'
+import TicketList from './TicketList';
 
 const drawerWidth = 240;
 
@@ -75,10 +76,15 @@ const sideItems = [
       title:'List',
       route:'viewitems'
   },
+  {
+    title:'Tickets',
+    route:'viewtickets'
+},
     {
         title:'Add Items',
         route:'additems'
     },
+    
 
     
 ]
@@ -97,7 +103,7 @@ export default function Home() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
-  const [page, setPage] = React.useState('viewitems')
+  const [page, setPage] = React.useState('viewtickets')
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -162,9 +168,10 @@ export default function Home() {
       <Main open={open}>
         <DrawerHeader />
             {/* <Categories/> */}
-            {page == 'categories' && <Categories/>}
+            {/* {page == 'categories' && <Categories/>} */}
             {page == 'additems' && <AddItems/>}
             {page == 'viewitems' && <MonumentList/>}
+            {page == 'viewtickets' && <TicketList/> }
             {/* <Routes>
             <Route exact path='/home/categories' element={<Categories/>} />
             <Route exact path='/additems' element={<AddItems/>} />
