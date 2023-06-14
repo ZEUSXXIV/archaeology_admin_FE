@@ -1,6 +1,5 @@
 import React from 'react'
 import Footer from './components/Footer'
-import Categories from './pages/Categories'
 import Home from './pages/Home'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 import AddItems from './pages/AddItems'

@@ -18,12 +18,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import Categories from './Categories';
 import MonumentList from './MonumentList';
 import AddItems from './AddItems';
 
 import {Routes, Route} from 'react-router-dom'
 import TicketList from './TicketList';
+import Dashboard from './Dashboard';
 
 const drawerWidth = 240;
 
@@ -64,10 +64,10 @@ const AppBar = styled(MuiAppBar, {
 }));
 
 const sideItems = [
-    // {
-    //     title:'Dashboard',
-    //     route:'dashboard'
-    // },
+    {
+        title:'Dashboard',
+        route:'dashboard'
+    },
     // {
     //     title:'Categories',
     //     route:'categories'
@@ -96,14 +96,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
-//   backgroundColor:'blue'
+  // backgroundColor:"#8884d8"
 }));
 
 export default function Home() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
-  const [page, setPage] = React.useState('viewtickets')
+  const [page, setPage] = React.useState('dashboard')
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -116,7 +116,7 @@ export default function Home() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" style={{backgroundColor:'#8884d8'}} open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -169,9 +169,11 @@ export default function Home() {
         <DrawerHeader />
             {/* <Categories/> */}
             {/* {page == 'categories' && <Categories/>} */}
+            {page == 'dashboard' && <Dashboard/> }
             {page == 'additems' && <AddItems/>}
             {page == 'viewitems' && <MonumentList/>}
             {page == 'viewtickets' && <TicketList/> }
+            
             {/* <Routes>
             <Route exact path='/home/categories' element={<Categories/>} />
             <Route exact path='/additems' element={<AddItems/>} />
