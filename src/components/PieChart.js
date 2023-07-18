@@ -73,6 +73,9 @@ export default class Example extends PureComponent {
 
     const { data } = this.props
 
+    console.log("data==>>", data)
+    
+
     return (
         <PieChart width={600} height={450} >
           <Pie
@@ -81,8 +84,8 @@ export default class Example extends PureComponent {
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={200}
-            outerRadius={220}
+            innerRadius={160}
+            outerRadius={180}
             fill="#8884d8"
             dataKey="value"
             onMouseEnter={this.onPieEnter}

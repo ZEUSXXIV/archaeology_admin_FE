@@ -20,10 +20,14 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MonumentList from './MonumentList';
 import AddItems from './AddItems';
+import { Analytics } from '@mui/icons-material';
 
 import {Routes, Route} from 'react-router-dom'
 import TicketList from './TicketList';
 import Dashboard from './Dashboard';
+import { useEffect } from 'react';
+
+
 
 const drawerWidth = 240;
 
@@ -66,23 +70,23 @@ const AppBar = styled(MuiAppBar, {
 const sideItems = [
     {
         title:'Dashboard',
-        route:'dashboard'
+        route:'dashboard',
+        icon:<Analytics/>
     },
-    // {
-    //     title:'Categories',
-    //     route:'categories'
-    // },
     {
       title:'List',
-      route:'viewitems'
+      route:'viewitems',
+      icon:<MailIcon/>
   },
   {
     title:'Tickets',
-    route:'viewtickets'
+    route:'viewtickets',
+    icon:<InboxIcon />
 },
     {
         title:'Add Items',
-        route:'additems'
+        route:'additems',
+        icon:<Analytics/>
     },
     
 
@@ -100,6 +104,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 export default function Home() {
+
+
+
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
 
@@ -112,6 +120,17 @@ export default function Home() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  // useEffect(async()=>{
+
+  //   const status = await localStorage.getItem("admin-token")
+  //   console.log("status==>>",status)
+  //   if(status == null){
+  //     window.location.href = "/login"
+  //     return
+  //   }
+
+  // },[])
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -156,7 +175,8 @@ export default function Home() {
             <ListItem key={index} disablePadding>
               <ListItemButton onClick={()=> setPage(text.route)}>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                  {text.icon}
                 </ListItemIcon>
                 <ListItemText primary={text.title} />
               </ListItemButton>
@@ -167,6 +187,8 @@ export default function Home() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
+        
+        
             {/* <Categories/> */}
             {/* {page == 'categories' && <Categories/>} */}
             {page == 'dashboard' && <Dashboard/> }
