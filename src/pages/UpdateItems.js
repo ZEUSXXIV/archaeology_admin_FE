@@ -118,7 +118,7 @@ const UpdateItems = () => {
         <form onSubmit={formik.handleSubmit}>
           <Box sx={{ my: 3 }}>
             <Typography color="textPrimary" variant="h4">
-              ADD MONUMENT
+              UPDATE MONUMENT
             </Typography>
           </Box>
 

@@ -28,6 +28,10 @@ import Dashboard from './Dashboard';
 import { useEffect } from 'react';
 
 
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 const drawerWidth = 240;
 
@@ -76,7 +80,7 @@ const sideItems = [
     {
       title:'List',
       route:'viewitems',
-      icon:<MailIcon/>
+      icon:<FormatListNumberedIcon/>
   },
   {
     title:'Tickets',
@@ -86,7 +90,7 @@ const sideItems = [
     {
         title:'Add Items',
         route:'additems',
-        icon:<Analytics/>
+        icon:<AddCircleIcon/>
     },
     
 

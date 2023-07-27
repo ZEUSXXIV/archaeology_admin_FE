@@ -134,7 +134,7 @@ const Dashboard = () => {
             >
               <Card
                 title="Users"
-                value={data[2]?.value}
+                value={data[3]?.value}
               />
             </Col>
             <Col 
@@ -142,7 +142,7 @@ const Dashboard = () => {
             >
               <Card
                 title="Page Views"
-                value={data[3]?.value}
+                value={data[2]?.value}
               />
             </Col>
           </Row>

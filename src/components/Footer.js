@@ -58,7 +58,7 @@ const Footer = () => {
   ];
 
   return (
-    <div style={{zIndex:10000}}>
+    <div style={{zIndex:10000, marginTop:0}}>
       <SimpleReactFooter
         description={description}
         title={title}
